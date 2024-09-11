@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sebastien.valat.dev@orange.fr</email>
+		<name>Sébastien Valat</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">memtt/malt</remote-id>
+	</upstream>
+	<use>
+		<flag name="qt5">Enable compilation of the QT webview wrapper (requires webengine).</flag>
+		<flag name="webengine">Enable compilation of the QT webview wrapper (requires QT5).</flag>
+		<flag name="test">Enable unit testing before installing.</flag>
+	</use>
+</pkgmetadata>
