@@ -11,7 +11,7 @@ You first need to import the overlay :
 
 ```sh
 # import the repo
-sudo eselect repository add gentoo-memtt-overlay git https://github.com/memtt/gentoo-memtt-overlay.git
+sudo eselect repository add memtt git https://github.com/memtt/gentoo-memtt-overlay.git
 ```
 
 You can then enable it :
