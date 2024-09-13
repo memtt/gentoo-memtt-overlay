@@ -1,0 +1,24 @@
+From a797a6cd6b81175df71d876340c1b0e01311c1d4 Mon Sep 17 00:00:00 2001
+From: Sebastien Valat <sebastien.valat.dev@orange.fr>
+Date: Wed, 11 Sep 2024 17:25:37 +0200
+Subject: [PATCH] [fix] Fix include issue missing "cstdint" on Gentoo
+
+---
+ src/lib/core/Stats.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/lib/core/Stats.cpp b/src/lib/core/Stats.cpp
+index ada4462..d6648a5 100644
+--- a/src/lib/core/Stats.cpp
++++ b/src/lib/core/Stats.cpp
+@@ -7,6 +7,7 @@
+ *****************************************************/
+ 
+ /*******************  HEADERS  **********************/
++#include <cstdint>
+ #include "Stats.hpp"
+ 
+ /*******************  NAMESPACE  ********************/
+-- 
+2.44.2
+

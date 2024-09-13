@@ -1,0 +1,39 @@
+From 89b8d4181895897870636f9dcabef41cb91a6f1b Mon Sep 17 00:00:00 2001
+From: Sebastien Valat <sebastien.valat.dev@orange.fr>
+Date: Wed, 11 Sep 2024 17:31:49 +0200
+Subject: [PATCH 2/2] [fix] Lib dir install on Gentoo
+
+---
+ src/integration/pintool/CMakeLists.txt | 3 ++-
+ src/lib/CMakeLists.txt                 | 4 ++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/src/integration/pintool/CMakeLists.txt b/src/integration/pintool/CMakeLists.txt
+index 15b9ecb..545ff19 100644
+--- a/src/integration/pintool/CMakeLists.txt
++++ b/src/integration/pintool/CMakeLists.txt
+@@ -51,4 +51,5 @@ add_custom_target(pintool ALL COMMAND make -f Makefile.pin
+                               DEPENDS ${PIN_MODULE_SOURCES})
+ 
+ ######################################################
+-install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/obj-intel64/libnumaprof-pintool.so DESTINATION lib)
++install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/obj-intel64/libnumaprof-pintool.so
++        DESTINATION ${CMAKE_INSTALL_LIBDIR})
+diff --git a/src/lib/CMakeLists.txt b/src/lib/CMakeLists.txt
+index 26c7d45..3924672 100644
+--- a/src/lib/CMakeLists.txt
++++ b/src/lib/CMakeLists.txt
+@@ -32,8 +32,8 @@ add_subdirectory(caches)
+ ######################################################
+ #target_link_libraries(numaprof ${HWLOC_LIBRARY})
+ INSTALL(TARGETS numaprof
+-	ARCHIVE DESTINATION lib
+-	LIBRARY DESTINATION lib)
++	ARCHIVE
++	LIBRARY)
+ 
+ ######################################################
+ if (ENABLE_TESTS)
+-- 
+2.44.2
+
