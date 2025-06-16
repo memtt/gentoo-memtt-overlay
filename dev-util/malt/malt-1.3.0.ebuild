@@ -10,21 +10,19 @@ HOMEPAGE="https://memtt.github.io/malt/"
 SRC_URI="https://github.com/memtt/malt/releases/download/v${PV}/malt-${PV}.tar.bz2"
 LICENSE="CeCILL-C"
 SLOT="0"
-#KEYWORDS="~amd64 ~x86"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="qt5 webengine test python +jemalloc"
-RESTRICT="!test? ( test )"
+RESTRICT=""
 DEPEND="
 	virtual/libelf
 	sys-libs/libunwind
 	qt5? ( webengine? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwebengine:5 ) )
-	python? (dev-lang/python:3)
+	python? ( dev-lang/python )
 "
 RDEPEND="
 	${DEPEND}
 	net-libs/nodejs
 	sys-devel/binutils
-	python? (dev-lang/python:3)
 "
 
 src_configure() {
@@ -32,6 +30,7 @@ src_configure() {
 		-DENABLE_TESTS=$(usex test)
 		-DENABLE_PYTHON=$(usex python)
 		-DENABLE_JEMALLOC=$(usex jemalloc)
+		-DINSTALL_GTEST=OFF
 	)
 	cmake_src_configure
 }
