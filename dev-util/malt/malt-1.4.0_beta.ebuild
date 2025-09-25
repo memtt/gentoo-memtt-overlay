@@ -33,6 +33,11 @@ RDEPEND="
 	${DEPEND}
 	sys-devel/binutils
 "
+PATCHES=(
+	"${FILESDIR}"/${P}-jemalloc-disable-doc.patch
+)
+MY_PV="${PV/_/-}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_configure() {
 	mycmakeargs=(
