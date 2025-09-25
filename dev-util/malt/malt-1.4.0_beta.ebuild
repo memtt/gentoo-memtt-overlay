@@ -26,7 +26,7 @@ DEPEND="
 	dev-cpp/nlohmann_json
 	dev-cpp/cpp-httplib
 	dev-libs/openssl
-	python? ( dev-lang/python )
+	python? ( >=dev-lang/python-3.11 )
 	test? ( dev-cpp/gtest )
 "
 RDEPEND="
